@@ -1,4 +1,4 @@
-import { db, admin } from './firebase.js';
+import { db } from './firebase.js';
 export async function saveArticlesToFirebase(articles) {
     try {
         // Create a new document reference for the batch in Firestore
@@ -6,7 +6,7 @@ export async function saveArticlesToFirebase(articles) {
         // Save all the articles in a single document under the 'articles' field
         await batchRef.set({
             articles: articles, // Save the entire batch of articles as an array
-            createdAt: admin.firestore.FieldValue.serverTimestamp(),
+            createdAt: Date.now(),
         });
         console.log('Batch of articles saved to Firebase successfully');
     }

@@ -55,16 +55,10 @@ app.use(body_parser_1.default.raw({ limit: '100mb', type: 'application/json' }))
 app.use(express_1.default.json({ limit: '100mb' }));
 app.use(express_1.default.urlencoded({ limit: '100mb', extended: true }));
 const openai = new openai_1.OpenAI({
-    apiKey: "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",
+    apiKey: "",
 });
 const pinecone = new PineconeClient();
-async function initializePinecone() {
-    await pinecone.init({
-        apiKey: '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',
-        environment: 'pcsk_53ck4u_GxSt7PeDdXTpTVXo9ffNS9egMV3V6WxmLkViqkjJKyiFMNRA2soDxSV5GbdTkCv', // Check your Pinecone dashboard for details
-    });
-}
-initializePinecone();
+
 const index = pinecone.Index('articles');
 app.get('/search', async (req, res) => {
     try {

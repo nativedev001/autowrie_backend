@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import puppeteer from 'puppeteer';
 import { saveArticlesToFirebase } from './config/saveArticlesToFirebase.js';
-import { saveScrapedArticlesToFile } from './saveArticlesToFile.js';
 export async function searchBitcoinPrice(query) {
     const browser = await puppeteer.launch({
         headless: true,
@@ -45,7 +44,7 @@ export async function searchBitcoinPrice(query) {
     }
     await browser.close();
     await saveArticlesToFirebase(results);
-    await saveScrapedArticlesToFile(results);
+    // await saveScrapedArticlesToFile(results);
     return results;
 }
 async function scrapeArticleContent(url) {
