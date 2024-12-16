@@ -39,7 +39,7 @@ app.use(express.urlencoded({ limit: '100mb', extended: true }));
 dotenv.config();
 const openai = new OpenAI(
     {
-    apiKey: process.env.OPEN_AI_API,
+    apiKey: 'here is key',
     }
   );
   const openAiApiKey = process.env.OPENAI_API_KEY;
