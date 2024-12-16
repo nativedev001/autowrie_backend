@@ -26,21 +26,8 @@ app.use((req, res, next) => {
 app.use(bodyParser.raw({ limit: '100mb', type: 'application/json' }));
 app.use(express.json({ limit: '100mb' }));
 app.use(express.urlencoded({ limit: '100mb', extended: true }));
-const openai = new OpenAI({
-    apiKey: "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",
-});
-const embeddings = new OpenAIEmbeddings({
-    openAIApiKey: "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"
-});
-const pinecone = new Pinecone({
-    apiKey: 'pcsk_6dBXka_M28QFSgVGfVwVgVKhQEYkGg41DPGmC5K3jZX1M1Uj85zoXJhVHL55NcLg91vrc8'
-});
-const model = new OpenAI({
-    openAIApiKey: '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',
-    temperature: 0.7,
-    modelName: 'gpt-3.5-turbo-16k',
-    maxTokens: 2000
-});
+
+
 const index = pinecone.Index('articles-1536');
 const analysisTemplate = PromptTemplate.fromTemplate(`
   You MUST provide a concise yet comprehensive article analysis based on the content provided. The output must be 20–30 lines.
