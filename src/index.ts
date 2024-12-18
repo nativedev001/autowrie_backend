@@ -39,7 +39,7 @@ app.use(express.urlencoded({ limit: '100mb', extended: true }));
 dotenv.config();
 const openai = new OpenAI(
     {
-    apiKey: 'here is key',
+      apiKey: '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',
     }
   );
   const openAiApiKey = process.env.OPENAI_API_KEY;
